@@ -29,12 +29,19 @@
                 {% for item in itens %}
                 <tr>
                     <td>{{ item.name }}</td>
-                    <td>{{ item.description }}</td>
+                    <td>
+                        {{ item.description|truncatechars:100 }}
+                        {% if item.description %}
+                            <span class="icon has-text-info"  title="{{ item.description }}">
+                                <i class="fas fa-info-circle"></i>
+                            </span>
+                        {% endif %}
+                    </td>
                     <td>{{ item.date_create }}</td>
                     <td>{{ item.date_update }}</td>
                     <td>{{ item.active }}</td>
                     <td>
-                        <form action="{% url 'company:delete' %}" method="post">
+                        <form action="{% url 'company:delete' item.id %}" method="post">
                             {% csrf_token %}
                             <button type="submit" class="button is-danger is-small">
                                 Delete

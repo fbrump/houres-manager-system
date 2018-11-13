@@ -6,5 +6,5 @@ app_name = 'company'
 urlpatterns = [
     path('', views.index, name='index'),
     path('new/', views.create, name='create'),
-    path('delete/', views.delete, name='delete'),
+    path('delete/<int:pk>/', views.delete, name='delete'),
 ]

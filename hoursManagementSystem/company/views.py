@@ -13,13 +13,14 @@ def create(request):
     if request.method == 'POST':
         form_data = CompanyForm(request.POST)
         if form_data.is_valid():
-            form_data.active = True
             form_data.save()
             return HttpResponseRedirect(reverse('company:index'))
         else:
-            print(form_data.errors)
             return render(request, 'company/create.html', { 'error_message': form_data.errors })
     return render(request, 'company/create.html')
 
-def delete(request):
+def delete(request, pk):
+    company = Company.objects.get(id=pk)
+    if company:
+        company.delete()
     return HttpResponseRedirect(reverse('company:index'))
