@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Companies</h3>
 
+<a href="{% url 'company:create' %}">Add</a>
+
 <table>
     <thead>
         <tr>
@@ -12,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for item in list %}
+        {% for item in itens %}
         <tr>
             <td>{{ item.name }}</td>
             <td>{{ item.description }}</td>
