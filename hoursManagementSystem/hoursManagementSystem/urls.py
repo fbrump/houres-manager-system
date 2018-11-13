@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^static/(?P<path>.*)$', views.serve),
     path('companies/', include('company.urls')),
+    path('', include('dashboard.urls')),
 ]
