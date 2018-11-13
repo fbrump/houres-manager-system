@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    MENU:
+        <ul>
+            <li><a href="{% url 'company:index' %}">Companies</a></li>
+            <li><a href="{% url 'company:create' %}">Add Companies</a></li>
+        </ul>
     {% block content %}
     {% endblock content %}
 </body>
