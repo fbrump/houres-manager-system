@@ -6,8 +6,8 @@ from .forms import CompanyForm
 from .models import Company
 
 def index(request):
-    componies = Company.objects.all()
-    return render(request, 'company/index.html', { 'itens': componies })
+    componies = Company.objects.all()[::-1]
+    return render(request, 'company/index.html', { 'itens': componies, 'count': len(componies) })
 
 def create(request):
     if request.method == 'POST':
