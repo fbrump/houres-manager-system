@@ -1,7 +1,15 @@
 from django.db import models
 
 class Company(models.Model):
-    name = models.CharField(max_length=255)
+    """
+        args:
+            name
+            description
+            active
+            date_create
+            date_update
+    """
+    name = models.CharField(max_length=255, unique=True)
     description = models.TextField(blank=True, null=True)
     active = models.BooleanField(default=True)
     date_create = models.DateTimeField(auto_now_add=True)
