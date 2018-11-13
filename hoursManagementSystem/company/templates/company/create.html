@@ -1,25 +1,36 @@
 {% extends 'base.html' %} {% block content %}
 
-<h3>Company</h3>
-<a href="{% url 'company:index' %}">Companies</a>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-<form action="{% url 'company:create' %}" method="post">
-    {% csrf_token %}
-    <div>
-        <label for="name">Name
-            <input type="text" name="name" id="name">
-        </label>
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Company
+      </h1>
+      <h2 class="subtitle">
+        Informations about company
+      </h2>
     </div>
-    <div>
-        <label for="description">Description
-            <input type="text" name="desciption" id="desciption">
-        </label>
-    </div>
-    <div>
-        <button type="submit">
-            Save
-        </button>
-    </div>
-</form>
-
+  </div>
+</section>
+<section class="section">
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <form action="{% url 'company:create' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="name">Name
+                <input type="text" name="name" id="name">
+            </label>
+        </div>
+        <div>
+            <label for="description">Description
+                <input type="text" name="desciption" id="desciption">
+            </label>
+        </div>
+        <div>
+            <button type="submit">
+                Save
+            </button>
+        </div>
+    </form>
+</section>
 {% endblock content %}

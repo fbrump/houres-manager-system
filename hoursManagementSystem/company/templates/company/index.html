@@ -1,29 +1,39 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Companies</h3>
 
-<a href="{% url 'company:create' %}">Add</a>
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Create</th>
-            <th>Update</th>
-            <th>State</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in itens %}
-        <tr>
-            <td>{{ item.name }}</td>
-            <td>{{ item.description }}</td>
-            <td>{{ item.date_create }}</td>
-            <td>{{ item.date_update }}</td>
-            <td>{{ item.active }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Companies
+      </h1>
+      <h2 class="subtitle">
+        Informations about companies
+      </h2>
+    </div>
+  </div>
+</section>
+<section class="section">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Create</th>
+                <th>Update</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in itens %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.date_create }}</td>
+                <td>{{ item.date_update }}</td>
+                <td>{{ item.active }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
 {% endblock content %}

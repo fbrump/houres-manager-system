@@ -11,13 +11,20 @@
 </head>
 
 <body>
-    <div class="container">
-        MENU:
-        <ul>
-            <li><a href="{% url 'company:index' %}">Companies</a></li>
-            <li><a href="{% url 'company:create' %}">Add Companies</a></li>
-        </ul>
-        {% block content %} {% endblock content %}
+    <div class="container is-fullhd">
+        <header class="navbar">
+            MENU:
+            <ul>
+                <li><a href="{% url 'company:index' %}">Companies</a></li>
+                <li><a href="{% url 'company:create' %}">Add Companies</a></li>
+            </ul>
+        </header>
+        <section>
+            {% block content %} {% endblock content %}
+        </section>
+        <footer class="footer">
+            <p>Footer</p>
+        </footer>
     </div>
 </body>
 
