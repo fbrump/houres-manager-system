@@ -4,6 +4,9 @@ from datetime import datetime, timezone
 from ..models import Company
 
 class CompanyInsertTest(TestCase):
+    """
+        Company insert tests
+    """
     def setUp(self):
         pass
     def test_crate_new_company(self):
