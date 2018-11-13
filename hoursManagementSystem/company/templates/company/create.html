@@ -1,36 +1,52 @@
 {% extends 'base.html' %} {% block content %}
 
 <section class="hero is-primary">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Company
-      </h1>
-      <h2 class="subtitle">
-        Informations about company
-      </h2>
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Company
+            </h1>
+            <h2 class="subtitle">
+                Informations about company
+            </h2>
+        </div>
     </div>
-  </div>
 </section>
 <section class="section">
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-    <form action="{% url 'company:create' %}" method="post">
-        {% csrf_token %}
-        <div>
-            <label for="name">Name
-                <input type="text" name="name" id="name">
-            </label>
+    <div class="container">
+        {% if error_message %}
+        <div class="notification is-warning">
+            <h4><strong>Validations!!</strong></h4>
+            <p>{{ error_message }}</p>
         </div>
-        <div>
-            <label for="description">Description
-                <input type="text" name="desciption" id="desciption">
-            </label>
-        </div>
-        <div>
-            <button type="submit">
-                Save
-            </button>
-        </div>
-    </form>
+        {% endif %}
+        <form action="{% url 'company:create' %}" method="post">
+            {% csrf_token %}
+            <div class="field">
+                <label for="name" class="label">Name</label>
+                <div class="control">
+                    <input type="text" name="name" id="name" placeholder="Input name..." class="input">
+                </div>
+            </div>
+            <div class="field">
+                <label for="description" class="label">Description</label>
+                <div class="control">
+                    <textarea name="description" id="description" cols="30" rows="10" class="textarea" placeholder="Input description..."></textarea>
+                </div>
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button type="submit" class="button is-primary">
+                        Save
+                    </button>
+                </div>
+                <div class="control">
+                    <a href="{% url 'company:index' %}" class="button is-default" title="Back to list">
+                        Back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 {% endblock content %}

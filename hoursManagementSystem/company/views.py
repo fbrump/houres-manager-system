@@ -20,3 +20,6 @@ def create(request):
             print(form_data.errors)
             return render(request, 'company/create.html', { 'error_message': form_data.errors })
     return render(request, 'company/create.html')
+
+def delete(request):
+    return HttpResponseRedirect(reverse('company:index'))
