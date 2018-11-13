@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+
+<h3>Company</h3>
+
+<form action="{% url 'company:create' %}" method="post">
+    <div>
+        <label for="name">Name
+            <input type="text" name="name" id="name">
+        </label>
+    </div>
+    <div>
+        <label for="description">
+            <input type="text" name="desciption" id="desciption">
+        </label>
+    </div>
+    <div>
+        <button type="submit">
+            Save
+        </button>
+    </div>
+</form>
+
+{% endblock content %}

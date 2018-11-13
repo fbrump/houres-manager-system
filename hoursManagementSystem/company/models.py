@@ -2,6 +2,7 @@ from django.db import models
 
 class Company(models.Model):
     """
+        Company object to keep all informations about
         args:
             name
             description

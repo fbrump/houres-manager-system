@@ -1,6 +1,27 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+<h3>Companies</h3>
 
-{% block content %}
-<h3>Company</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Create</th>
+            <th>Update</th>
+            <th>State</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in list %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.date_create }}</td>
+            <td>{{ item.date_update }}</td>
+            <td>{{ item.active }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% endblock content %}
