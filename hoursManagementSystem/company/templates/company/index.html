@@ -13,27 +13,29 @@
   </div>
 </section>
 <section class="section">
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Create</th>
-                <th>Update</th>
-                <th>State</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in itens %}
-            <tr>
-                <td>{{ item.name }}</td>
-                <td>{{ item.description }}</td>
-                <td>{{ item.date_create }}</td>
-                <td>{{ item.date_update }}</td>
-                <td>{{ item.active }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</section>
+    <div class="container">
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Create</th>
+                    <th>Update</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in itens %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.date_create }}</td>
+                    <td>{{ item.date_update }}</td>
+                    <td>{{ item.active }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock content %}
