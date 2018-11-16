@@ -14,6 +14,6 @@ class Pointsheet(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     class Meta:
-        pass
+        unique_together = ('year', 'month', 'company')
     def __str__(self):
         return '{} - {}'.format(self.year, self.month)
