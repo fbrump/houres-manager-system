@@ -22,4 +22,5 @@ urlpatterns = [
     re_path(r'^static/(?P<path>.*)$', views.serve),
     path('companies/', include('company.urls')),
     path('', include('dashboard.urls')),
+    path('pointsheets/', include('pointsheets.urls')),
 ]
