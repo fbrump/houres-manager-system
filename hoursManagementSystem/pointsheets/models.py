@@ -15,3 +15,5 @@ class Pointsheet(models.Model):
 
     class Meta:
         pass
+    def __str__(self):
+        return '{} - {}'.format(self.year, self.month)
