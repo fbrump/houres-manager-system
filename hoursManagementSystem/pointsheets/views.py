@@ -4,11 +4,12 @@ from django.views.generic.list import ListView
 
 from .models import Pointsheet
 
-def index(request):
-	return render(request, 'pointsheets/index.html')
+# def index(request):
+# 	return render(request, 'pointsheets/index.html')
 
 class PointsheetsDetailsView(DetailView):
 	model = Pointsheet
+	template_name = 'pointsheets/details.html'
 
 	def get_context_data(self, **kwargs):
 	    context = super().get_context_data(**kwargs)
@@ -17,6 +18,7 @@ class PointsheetsDetailsView(DetailView):
 class PointsheetListView(ListView):
 	model = Pointsheet
 	paginated_by = 100
+	template_name = 'pointsheets/index.html'
 
 	def get_context_data(self, **kwargs):
 	    context = super().get_context_data(**kwargs)

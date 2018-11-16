@@ -15,6 +15,43 @@
 </section>
 <section class="section">
     <div class="container">
+        {% if count > 0  %}
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Create</th>
+                    <th>Update</th>
+                    <th>State</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in object_list %}
+                <tr>
+                    <td></td>
+                    <td>{{ item.year }}</td>
+                    <td>{{ item.month }}</td>
+                    <td>{{ item.date_create }}</td>
+                    <td>{{ item.date_update }}</td>
+                    <td>{{ item.active }}</td>
+                    <td>
+                        <form action="{% url 'company:delete' item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="button is-danger is-small">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Not exist any item registred</p>
+        {% endif %}
 	</div>
 </section>
 {% endblock content %}
