@@ -15,6 +15,36 @@
 </section>
 <section class="section">
     <div class="container">
+        <div class="field">
+          <label class="label">Year</label>
+          <div class="control">
+            <input class="input" type="text" disabled="disabled" value="{{ object.year }}">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Month</label>
+          <div class="control">
+            <input class="input" type="text" disabled="disabled" value="{{ object.month }}">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Date Create</label>
+          <div class="control">
+            <input class="input" type="text" disabled="disabled" value="{{ object.date_create }}">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Date Update</label>
+          <div class="control">
+            <input class="input" type="text" disabled="disabled" value="{{ object.date_update }}">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Active</label>
+          <div class="control">
+            <input class="input" type="text" disabled="disabled" value="{{ object.active }}">
+          </div>
+        </div>
     </div>
 </section>
 {% endblock content %}
