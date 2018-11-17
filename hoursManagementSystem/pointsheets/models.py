@@ -5,6 +5,13 @@ from company.models import Company
 class Pointsheet(models.Model):
     """
     Description: Pointsheet
+    firlds:
+        year
+        month
+        active
+        date create
+        date update
+        company
     """
     year = models.IntegerField()
     month = models.IntegerField()
@@ -17,3 +24,5 @@ class Pointsheet(models.Model):
         unique_together = ('year', 'month', 'company')
     def __str__(self):
         return '{} - {}'.format(self.year, self.month)
+    def get_absolute_url(self):
+        return reverse('details', kwargs={'pk': self.pk})

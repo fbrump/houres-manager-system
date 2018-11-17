@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero is-info is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Point Sheet
+            </h1>
+            <h2 class="subtitle">
+                Informations about point sheets
+            </h2>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+		<form method="post">
+			{% csrf_token %}
+		    {{ form.as_p }}
+		    <input type="submit" value="Save">
+		</form>
+	</div>
+</section>
+    
+{% endblock content %}
