@@ -18,7 +18,31 @@
     <div class="container">
 		<form method="post">
 			{% csrf_token %}
-		    {{ form.as_p }}
+		    {{ form.non_field_errors }}
+			<div class="field">
+			    {{ form.year.errors }}
+			    <label for="{{ form.year.id_for_label }}" class="label">Year:</label>
+			    <dev class="control">
+			    	<input type="number" name="{{ form.year.id_for_label }}" id="{{ form.year.id_for_label }}" value="" placeholder="Year.." class="input" required>
+		    	</dev>
+			</div>
+			<div class="field">
+			    {{ form.month.errors }}
+			    <label for="{{ form.month.id_for_label }}" class="label">Month:</label>
+			    <dev class="control">
+			    	<input type="number" name="{{ form.month.id_for_label }}" id="{{ form.month.id_for_label }}" value="" placeholder="Month.." class="input" required>
+				</dev>
+			</div>
+			<div class="field">
+			    {{ form.company.errors }}
+			    <label for="{{ form.company.id_for_label }}" class="label">Company:</label>
+			    <dev class="control">
+			    	{{ form.company }}
+			    	<select name="form.company.id_for_label" class="select">
+			    		{{ form.company }}
+			    	</select>
+			    </dev>
+			</div>
 		    <input type="submit" value="Save">
 		</form>
 	</div>
