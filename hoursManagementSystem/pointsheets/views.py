@@ -23,6 +23,7 @@ class PointsheetListView(ListView):
 	model = Pointsheet
 	paginated_by = 100
 	template_name = 'pointsheets/index.html'
+	ordering = ['-year', '-month']
 
 	def get_context_data(self, **kwargs):
 	    context = super().get_context_data(**kwargs)
@@ -37,6 +38,5 @@ class PointsheetCreateView(CreateView):
 	success_url = reverse_lazy('pointsheets:index')
 	def get_context_data(self, **kwargs):
 	    context = super().get_context_data(**kwargs)
-	    context['companies'] = Company.objects.all()
 	    return context
 
