@@ -8,8 +8,6 @@ from django.views.generic.edit import CreateView
 from .models import Pointsheet
 from company.models import Company
 
-# def index(request):
-# 	return render(request, 'pointsheets/index.html')
 
 class PointsheetsDetailsView(DetailView):
 	model = Pointsheet
