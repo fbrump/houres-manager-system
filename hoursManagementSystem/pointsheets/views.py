@@ -6,7 +6,6 @@ from django.views.generic.edit import CreateView
 
 
 from .models import Pointsheet
-from company.models import Company
 
 
 class PointsheetsDetailsView(DetailView):
