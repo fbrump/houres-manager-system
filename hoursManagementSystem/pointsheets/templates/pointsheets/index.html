@@ -48,7 +48,17 @@
                         </span>
                         {{ item.date_update|date:"D d M Y" }}
                     </td>
-                    <td>{{ item.active }}</td>
+                    <td>
+                        {% if item.active %}
+                            <span class="icon has-text-success">
+                              <i class="fas fa-toggle-on"></i>
+                            </span>
+                        {% else %}
+                            <span class="icon has-text-success">
+                              <i class="fas fa-toggle-off"></i>
+                            </span>
+                        {% endif %}
+                    </td>
                     <td>
                         <form action="{% url 'company:delete' item.id %}" method="post">
                             {% csrf_token %}
