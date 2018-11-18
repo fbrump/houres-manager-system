@@ -16,34 +16,45 @@
 </section>
 <section class="section">
     <div class="container">
-		<form method="post">
+		<form method="POST">
 			{% csrf_token %}
-		    {{ form.non_field_errors }}
 			<div class="field">
 			    {{ form.year.errors }}
-			    <label for="{{ form.year.id_for_label }}" class="label">Year:</label>
-			    <dev class="control">
-			    	<input type="number" name="{{ form.year.id_for_label }}" id="{{ form.year.id_for_label }}" value="" placeholder="Year.." class="input" required>
-		    	</dev>
+			    <label for="{{ form.year.id_for_label }}" class="label">
+			    	Year:
+				</label>
+			    <div class="control">
+			    	<input type="number" name="{{ form.year.id_for_label }}" id="{{ form.year.id_for_label }}" value="" placeholder="Year.." class="input" autofocus="autofocus">
+		    	</div>
 			</div>
 			<div class="field">
 			    {{ form.month.errors }}
-			    <label for="{{ form.month.id_for_label }}" class="label">Month:</label>
-			    <dev class="control">
-			    	<input type="number" name="{{ form.month.id_for_label }}" id="{{ form.month.id_for_label }}" value="" placeholder="Month.." class="input" required>
-				</dev>
+			    <label for="{{ form.month.id_for_label }}" class="label">
+			    	Month:
+		    	</label>
+			    <div class="control">
+			    	<input type="number" name="{{ form.month.id_for_label }}" id="{{ form.month.id_for_label }}" value="" placeholder="Month.." class="input">
+				</div>
 			</div>
 			<div class="field">
 			    {{ form.company.errors }}
-			    <label for="{{ form.company.id_for_label }}" class="label">Company:</label>
-			    <dev class="control">
-			    	{{ form.company }}
-			    	<select name="form.company.id_for_label" class="select">
-			    		{{ form.company }}
-			    	</select>
-			    </dev>
+			    <label for="{{ form.company.id_for_label }}" class="label">
+			    	Company:
+			    </label>
+			    <div class="select">
+		    		<select name="form.company.id_for_label">
+		    			<option value="">Select...</option>
+		    		{% for company in companies %}
+		    			<option value="{{ company.id }}">
+		    				{{ company.name }}
+		    			</option>}
+		    			option
+		    		{% endfor %}
+		    	</select>
+			    </div>
 			</div>
-		    <input type="submit" value="Save">
+		    <a href="{% url 'pointsheets:index' %}" class="button is-default" title="Go back to list pointsheets">Cancel</a>
+		    <input type="submit" value="Save" class="button is-success" title="Save">
 		</form>
 	</div>
 </section>

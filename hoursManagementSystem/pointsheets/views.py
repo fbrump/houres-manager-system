@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
+from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 
 
 from .models import Pointsheet
+from company.models import Company
 
 # def index(request):
 # 	return render(request, 'pointsheets/index.html')
@@ -32,4 +34,9 @@ class PointsheetCreateView(CreateView):
 	fields = ['year', 'month', 'company']
 	# template_name_suffix = '/create'
 	template_name = 'pointsheets/create.html'
+	success_url = reverse_lazy('pointsheets:index')
+	def get_context_data(self, **kwargs):
+	    context = super().get_context_data(**kwargs)
+	    context['companies'] = Company.objects.all()
+	    return context
 
