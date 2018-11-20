@@ -60,7 +60,7 @@
                         {% endif %}
                     </td>
                     <td>
-                        <form action="{% url 'company:delete' item.id %}" method="post">
+                        <form action="{% url 'pointsheets:delete' item.id %}" method="get">
                             {% csrf_token %}
                             <button type="submit" class="button is-danger is-small">
                                 Delete

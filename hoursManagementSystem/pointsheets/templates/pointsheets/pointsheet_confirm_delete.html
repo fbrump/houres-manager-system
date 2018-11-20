@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero is-info is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Point Sheet - DELETE
+            </h1>
+            <h2 class="subtitle">
+                Confirmation to delete pointsheet
+            </h2>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+	    <form method="post">
+	    	{% csrf_token %}
+		    <p>Are you sure you want to delete "{{ object }}"?</p>
+		    <a href="{% url 'pointsheets:index' %}" title="Back to list itens" class="button is-default">
+		    	Cancelar
+	    	</a>
+		    <input type="submit" value="Confirm" class="button is-danger" title="Confirm to delete">
+		</form>
+	</div>
+</section>
+
+{% endblock content %}
