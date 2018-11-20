@@ -2,7 +2,7 @@ from django.shortcuts import render, reverse
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 
 from .models import Pointsheet
@@ -42,3 +42,9 @@ class PointsheetDeleteView(DeleteView):
     # template_name = "pointsheets/confirm_delete.html"
     template_name_suffix = "_confirm_delete"
     success_url = reverse_lazy('pointsheets:index')
+
+class PointsheetUpdateView(UpdateView):
+	model = Pointsheet
+	template_name_suffix = "_update"
+	success_url = reverse_lazy('pointsheets:index')
+	fields = ['year', 'month', 'company']

@@ -32,7 +32,9 @@
                 {% for item in object_list %}
                 <tr>
                     <td>
-                        {{ item.company }}
+                        <a href="{% url 'pointsheets:update' item.id %}" title="Go to edit">
+                            {{ item.company }}
+                        </a>
                     </td>
                     <td>{{ item.year }}</td>
                     <td>{{ item.month }}</td>

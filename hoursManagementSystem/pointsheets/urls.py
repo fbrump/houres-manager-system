@@ -12,4 +12,5 @@ urlpatterns = [
     path('details/<int:pk>/', views.PointsheetsDetailsView.as_view(), name='details'),
     path('create/', views.PointsheetCreateView.as_view(), name='create'),
     path('delete/<int:pk>/', views.PointsheetDeleteView.as_view(), name='delete'),
+    path('update/<int:pk>/', views.PointsheetUpdateView.as_view(), name='update'),
 ]
