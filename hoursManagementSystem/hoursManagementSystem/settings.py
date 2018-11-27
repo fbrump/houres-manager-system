@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'company',
     'dashboard',
     'pointsheets',
+    'launches',
 ]
 
 MIDDLEWARE = [
