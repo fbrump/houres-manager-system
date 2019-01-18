@@ -5,7 +5,7 @@ from company.models import Company
 class Pointsheet(models.Model):
     """
     Description: Pointsheet
-    firlds:
+    fields:
         year
         month
         active
