@@ -1,4 +1,5 @@
-# HMS - Houres Manager System
+HMS - Houres Manager System
+======
 
 This project is to demonstrate how to use TDD with Python.
 
@@ -16,15 +17,24 @@ Module to define a company with your informations.
 
 #### Fields
 
-- name
+- Name
+
     Company's name.
-- description
+
+- Description
+
     Lettle description about company, specification or comments.
-- active
+    
+- Active
+
     Status to be active (`True`) or deactive (`False`).
-- date create
+    
+- Date create
+
     Date time when this row was created.
-- date update
+    
+- Date update
+
     Date time when this row was updated.
 
 ### 2. Pointsheets
@@ -40,17 +50,28 @@ Module to define monthly the pointsheets's informations for one [Company]( 'Comp
 
 #### Fields
 
-- year
+- Year
+
     Year when the pointsheet was registred.
-- month
+    
+- Month 
+
     Month when the pointsheet was registred.
-- active
+    
+- Active
+    
     Status to be active (`True`) or deactive (`False`).
-- date create
+    
+- Date create
+
     Date time when this row was created.
-- date update
+    
+- Date update
+    
     Date time when this row was updated.
-- company
+    
+- Company
+    
     Company that it's relate.
 
 ### 3. Launches
