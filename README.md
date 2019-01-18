@@ -18,13 +18,9 @@ Module to define a company with your informations.
 #### Fields
 
 - _Name_ - Company's name.
-
 - _Description_ - Lettle description about company, specification or comments.
-    
 - _Active_ - Status to be active (`True`) or deactive (`False`).
-    
 - _Date create_ - Date time when this row was created.
-    
 - _Date update_ - Date time when this row was updated.
 
 ### [2. Pointsheets](https://github.com/fbrump/hours-management-system/tree/master/hoursManagementSystem/pointsheets 'Go to Pointsheets path')
@@ -41,15 +37,10 @@ Module to define monthly the pointsheets's informations for one Company.
 #### Fields
 
 - _Year_ - Year when the pointsheet was registred.
-    
 - _Month_ - Month when the pointsheet was registred.
-    
 - _Active_ - Status to be active (`True`) or deactive (`False`).
-    
 - _Date create_ - Date time when this row was created.
-    
 - _Date update_ - Date time when this row was updated.
-    
 - _Company_ - Company that it's relate.
 
 ### [3. Launches](https://github.com/fbrump/hours-management-system/tree/master/hoursManagementSystem/launches 'Go to launches path')
