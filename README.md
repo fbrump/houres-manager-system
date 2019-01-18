@@ -5,7 +5,7 @@ This project is to demonstrate how to use TDD with Python.
 
 ## Modules
 
-### 1. Companies
+### [1. Companies](https://github.com/fbrump/hours-management-system/tree/master/hoursManagementSystem/company 'Go to company path')
 
 Module to define a company with your informations.
 
@@ -37,9 +37,9 @@ Module to define a company with your informations.
 
     Date time when this row was updated.
 
-### 2. Pointsheets
+### [2. Pointsheets](https://github.com/fbrump/hours-management-system/tree/master/hoursManagementSystem/pointsheets 'Go to Pointsheets path')
 
-Module to define monthly the pointsheets's informations for one [Company]( 'Company module').
+Module to define monthly the pointsheets's informations for one Company.
 
 #### Actions
 
@@ -74,11 +74,11 @@ Module to define monthly the pointsheets's informations for one [Company]( 'Comp
     
     Company that it's relate.
 
-### 3. Launches
+### [3. Launches](https://github.com/fbrump/hours-management-system/tree/master/hoursManagementSystem/launches 'Go to launches path')
 
 Building..
 
-### 4. Dashboard
+### [4. Dashboard](https://github.com/fbrump/hours-management-system/tree/master/hoursManagementSystem/dashboard 'Go to dashboard path')
 
 _Building.._
 
