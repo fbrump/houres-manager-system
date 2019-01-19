@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from ..models import Launche
+from ..models import Launch
 from company.models import Company
 from pointsheets.models import Pointsheet
 

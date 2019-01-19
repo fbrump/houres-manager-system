@@ -2,9 +2,9 @@ from django.db import models
 
 from pointsheets.models import Pointsheet
 
-class Launche(models.Model):
+class Launch(models.Model):
     """
-        Description: Launche
+        Description: Launch
         fields:
             date
             time
