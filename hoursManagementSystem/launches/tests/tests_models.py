@@ -14,6 +14,6 @@ class LaunchesModelTests(TestCase):
             year='2018',
             month='01',
             company=self.company)
-    def test_create_new_launche():
+    def test_create_new_launch(self):
         pass
 
