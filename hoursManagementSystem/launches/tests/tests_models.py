@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.db import IntegrityError
 
 from ..models import Launch
 from company.models import Company
@@ -61,6 +62,34 @@ class LaunchesModelTests(TestCase):
         self.assertsDefaults(item1, result1)
         self.assertsDefaults(item2, result2)
         self.assertEqual(2, len(items))
+    
+    def test_create_two_launch_with_equal_date_time_and_pointsheet(self):
+        # arrange
+        item1 = Launch(
+            date = '2010-01-02',
+            time = '09:00',
+            pointsheet = self.pointsheet
+        )
+        item2 = Launch(
+            date = '2010-01-02',
+            time = '09:00',
+            pointsheet = self.pointsheet
+        )
+        # act
+        result1 = Launch.objects.create(
+            date = item1.date,
+            time = item1.time,
+            pointsheet = item1.pointsheet
+        )
+        with self.assertRaises(Exception) as context:
+            Launch.objects.create(
+                date = item2.date,
+                time = item2.time,
+                pointsheet = item2.pointsheet
+            )
+        # asserts
+        self.assertIsNotNone(context)
+        self.addTypeEqualityFunc(type(IntegrityError), type(context))
     
     def assertsDefaults(self, item, result):
         self.assertEqual(item.date, result.date)
