@@ -7,4 +7,5 @@ app_name = 'launches'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('create/', views.LauncheCreateView.as_view(), name='create'),
 ]

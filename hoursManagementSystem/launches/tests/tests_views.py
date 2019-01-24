@@ -1,4 +1,5 @@
-from django.test import TestCase, skip
+from django.test import TestCase
+import unittest
 from django.db import IntegrityError
 
 from company.models import Company
@@ -21,7 +22,7 @@ class LaunchViewsTest(TestCase):
         }
         response = self.client.post('launches/', data=data)
         self.assertEqual(response.status_code, 201)
-    @skip("it will work when fixed insert action")
+    @unittest.skip("it will work when fixed insert action")
     def test_try_to_create_a_new_launch_and_return_exception_identity(self):
         data = {
             'date': '2010-01-02',
