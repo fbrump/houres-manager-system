@@ -10,10 +10,64 @@ class LaunchesModelTests(TestCase):
     """
     def setUp(self):
         self.company = Company.objects.create(name='Company Name')
-        pointsheet = Pointsheet.objects.create(
+        self.pointsheet = Pointsheet.objects.create(
             year='2018',
             month='01',
             company=self.company)
-    def test_create_new_launch(self):
-        pass
+    
+    def test_create_one_launch(self):
+        # arrange
+        item = Launch(
+            date = '2010-01-02',
+            time = '09:00',
+            pointsheet = self.pointsheet
+        )
+        # act
+        result = Launch.objects.create(
+            date = item.date,
+            time = item.time,
+            pointsheet = item.pointsheet
+        )
+        items = Launch.objects.filter(id=1)
+        # asserts
+        self.assertsDefaults(item, result)
+        self.assertEqual(1, len(items))
+    
+    def test_create_two_launch(self):
+        # arrange
+        item1 = Launch(
+            date = '2010-01-02',
+            time = '09:00',
+            pointsheet = self.pointsheet
+        )
+        item2 = Launch(
+            date = '2010-01-02',
+            time = '12:00',
+            pointsheet = self.pointsheet
+        )
+        # act
+        result1 = Launch.objects.create(
+            date = item1.date,
+            time = item1.time,
+            pointsheet = item1.pointsheet
+        )
+        result2 = Launch.objects.create(
+            date = item2.date,
+            time = item2.time,
+            pointsheet = item2.pointsheet
+        )
+        items = Launch.objects.all()
+        # asserts
+        self.assertsDefaults(item1, result1)
+        self.assertsDefaults(item2, result2)
+        self.assertEqual(2, len(items))
+    
+    def assertsDefaults(self, item, result):
+        self.assertEqual(item.date, result.date)
+        self.assertEqual(item.time, result.time)
+        self.assertTrue(item.active)
+        self.assertIsNotNone(result.id)
+        self.assertGreater(result.id, 0)
+        self.assertIsNotNone(result.date_create)
+
 
