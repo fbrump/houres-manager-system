@@ -1,4 +1,4 @@
-HMS - Houres Manager System
+HMS - Hours Manager System
 ======
 
 This project is to demonstrate how to use TDD with Python.
