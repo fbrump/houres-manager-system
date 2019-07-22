@@ -6,6 +6,7 @@ from . import views
 app_name = 'launches'
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    # path('', views.index, name='index'),
+    path('', views.LauncheListView.as_view(), name='index'),
     path('create/', views.LauncheCreateView.as_view(), name='create'),
 ]

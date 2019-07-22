@@ -1,12 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Index - Launches</title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-	<h2>Launches!! Ok!</h2>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-info is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Launches
+            </h1>
+            <h2 class="subtitle">
+                Informations about launches
+            </h2>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        {% if object_list  %}
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Pointsheet</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Create</th>
+                    <th>Update</th>
+                    <th>State</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in object_list %}
+                <tr>
+                    <td>
+						{{ item.pointsheet }}
+                    </td>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.time }}</td>
+                    <td>
+                        <span class="icon has-text-info" title="{{ item.date_create }}">
+                          <i class="fas fa-calendar-alt"></i>
+                        </span>
+                        {{ item.date_create|date:"D d M Y" }}
+                    </td>
+                    <td>
+                        <span class="icon has-text-info" title="{{ item.date_update }}">
+                          <i class="fas fa-calendar-alt"></i>
+                        </span>
+                        {{ item.date_update|date:"D d M Y" }}
+                    </td>
+                    <td>
+                        {% if item.active %}
+                            <span class="icon has-text-success">
+                              <i class="fas fa-toggle-on"></i>
+                            </span>
+                        {% else %}
+                            <span class="icon has-text-success">
+                              <i class="fas fa-toggle-off"></i>
+                            </span>
+                        {% endif %}
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Not exist any item registred</p>
+        {% endif %}
+	</div>
+</section>
+{% endblock content %}
