@@ -91,6 +91,46 @@ class LaunchesModelTests(TestCase):
         self.assertIsNotNone(context)
         self.addTypeEqualityFunc(type(IntegrityError), type(context))
     
+    def test_active_one_launch_that_was_created(self):
+        # arrange
+        item1 = Launch(
+            date = '2010-01-02',
+            time = '09:00',
+            pointsheet = self.pointsheet
+        )
+        result1 = Launch.objects.create(
+            date = item1.date,
+            time = item1.time,
+            pointsheet = item1.pointsheet
+        )
+        # act
+        result1.active = True
+        result1.save()
+        itemCreated = Launch.objects.get(id=result1.id)
+        # asserts
+        self.assertIsNotNone(itemCreated)
+        self.assertTrue(itemCreated.active)
+    
+    def test_deactivate_one_launch_that_was_created(self):
+        # arrange
+        item1 = Launch(
+            date = '2010-01-02',
+            time = '09:00',
+            pointsheet = self.pointsheet
+        )
+        result1 = Launch.objects.create(
+            date = item1.date,
+            time = item1.time,
+            pointsheet = item1.pointsheet
+        )
+        # act
+        result1.active = False
+        result1.save()
+        itemCreated = Launch.objects.get(id=result1.id)
+        # asserts
+        self.assertIsNotNone(itemCreated)
+        self.assertFalse(itemCreated.active)
+
     def assertsDefaults(self, item, result):
         self.assertEqual(item.date, result.date)
         self.assertEqual(item.time, result.time)
