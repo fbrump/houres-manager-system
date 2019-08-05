@@ -130,7 +130,32 @@ class LaunchesModelTests(TestCase):
         # asserts
         self.assertIsNotNone(itemCreated)
         self.assertFalse(itemCreated.active)
-
+    
+    def test_create_one_item_then_deactivate_and_create_other_with_same_values_raise_exception(self):
+        # arrange
+        item1 = Launch(
+            date = '2010-01-02',
+            time = '09:00',
+            pointsheet = self.pointsheet
+        )
+        result1 = Launch.objects.create(
+            date = item1.date,
+            time = item1.time,
+            pointsheet = item1.pointsheet
+        )
+        result1.active = False
+        result1.save()
+        # act
+        with self.assertRaises(Exception) as context:
+            result2 = Launch.objects.create(
+                date = item1.date,
+                time = item1.time,
+                pointsheet = item1.pointsheet
+            )
+        # asserts
+        self.assertIsNotNone(context)
+        self.addTypeEqualityFunc(type(IntegrityError), type(context))
+    
     def assertsDefaults(self, item, result):
         self.assertEqual(item.date, result.date)
         self.assertEqual(item.time, result.time)
