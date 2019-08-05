@@ -23,3 +23,17 @@ class LaunchViewsTest(TestCase):
         }
         response = self.client.post('/launches/create/', data=data)
         self.assertEqual(response.status_code, 200)
+    
+    def test_success_list_launch(self):
+        data = {
+            'date': '2010-01-02',
+            'time': '09:00',
+            'pointsheet_id': self.pointsheet.id
+        }
+        self.client.post('/launches/create/', data=data)
+        self.client.post('/launches/create/', data=data)
+        self.client.post('/launches/create/', data=data)
+        self.client.post('/launches/create/', data=data)
+        response = self.client.get('/launches/')
+        self.assertIsNotNone(response)
+        self.assertEqual(response.status_code, 200)
