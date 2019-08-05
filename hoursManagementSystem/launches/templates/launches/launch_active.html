@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load bulma_tags %}
+{% block content %}
+<section class="hero is-info is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Launches - Active/Deactivate
+            </h1>
+            <h2 class="subtitle">
+                Update Launches
+            </h2>
+        </div>
+    </div>
+</section>
+<section class="section">
+	<div class="container">
+	    <form method="post">{% csrf_token %}
+		    {{ form|bulma }}
+		    <a href="{% url 'launches:index' %}" class="button is-default" title="Go back to list launches">
+		    	Cancel
+		    </a>
+		    <input type="submit" value="Update" class="button is-success" title="Save">
+		</form>
+	</div>
+</section>
+{% endblock content %}
