@@ -21,5 +21,18 @@ class LaunchViewsTest(TestCase):
             'time': '09:00',
             'pointsheet_id': self.pointsheet.id
         }
-        response = self.client.get('/launches/create/', data=data)
+        response = self.client.post('/launches/create/', data=data)
         self.assertEqual(response.status_code, 200)
+    
+    def test_success_active_a_launch(self):
+        data = {
+            'date': '2010-01-02',
+            'time': '11:00',
+            'pointsheet_id': self.pointsheet.id
+        }
+        response = self.client.post('/launches/create/', data=data)
+        self.assertEqual(response.status_code, 200)
+        # act
+        response2 = self.client.post('/launches/active/', data=data)
+        # assert
+        self.assertEqual(response2.status_code, 200)

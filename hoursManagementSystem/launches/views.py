@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 
 from .models import Launch
@@ -28,3 +28,9 @@ class LauncheListView(ListView):
 	    context = super().get_context_data(**kwargs)
 	    print(context)
 	    return context
+
+class LaunchActiveView(UpdateView):
+    model = Launch
+    template_name_suffix = "_active"
+    success_url = reverse_lazy('launches:index')
+    fields = ['active']

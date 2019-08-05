@@ -49,15 +49,17 @@
                         {{ item.date_update|date:"D d M Y" }}
                     </td>
                     <td>
+                        <a href="{% url 'launches:active' item.id %}" title="Go to active/deactivate">
                         {% if item.active %}
                             <span class="icon has-text-success">
                               <i class="fas fa-toggle-on"></i>
                             </span>
                         {% else %}
-                            <span class="icon has-text-success">
+                            <span class="icon has-text-danger">
                               <i class="fas fa-toggle-off"></i>
                             </span>
                         {% endif %}
+                        </a>
                     </td>
                     <td>
                     </td>
